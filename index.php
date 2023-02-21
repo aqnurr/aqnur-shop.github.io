@@ -12,7 +12,7 @@
             }
            
            
-            function FindOnPage(inputId) {//ищет текст на странице, в параметр передается ID поля для ввода
+            function FindOnPage(inputId) {
 
                 var obj = window.document.getElementById(inputId);
                 var textToFind;
@@ -28,34 +28,34 @@
                     alert("Вы ничего не ввели");
                     return;
                 }
-                        if(document.getElementById('price').innerHTML.toLowerCase().indexOf(textToFind.toLowerCase()) == -1)
+                if(document.getElementById('price').innerHTML.toLowerCase().indexOf(textToFind.toLowerCase()) == -1)
                 {
                 alert("Ничего не найдено, проверьте правильность ввода!");
                 }
                
                 else
                 {
-               
-                for (var i=0; i<5; i++)
-                {
-                var id=document.getElementById("fing_"+i);
-
-                if (CopyPage[i] == undefined)
-                     {CopyPage[i]=id.innerHTML;}
-                else {id.innerHTML=CopyPage[i];}
-
-               
-                if(~id.innerHTML.toLowerCase().indexOf(textToFind.toLowerCase())) //(если не -1)
-                //if (copy_page[i] != '')
+                    for (var i=0; i<5; i++)
                     {
-                    id.style.display='block';
-                    id.innerHTML = id.innerHTML.replace(eval("/"+textToFind+"/gi"),"<a name="+textToFind+" class=find>"+textToFind+"</a>"); //Заменяем найденный текст ссылками с якорем;
+                        var id=document.getElementById("fing_"+i);
 
-                    } else {
-                                        id.style.display='none';
-                    }}
+                        if (CopyPage[i] == undefined)
+                             {CopyPage[i]=id.innerHTML;}
+                        else {id.innerHTML=CopyPage[i];}
+
+               
+                        if(~id.innerHTML.toLowerCase().indexOf(textToFind.toLowerCase())) //(если не -1)
+                        //if (copy_page[i] != '')
+                        {
+                            id.style.display='block';
+                            id.innerHTML = id.innerHTML.replace(eval("/"+textToFind+"/gi"),"<a name="+textToFind+" class=find>"+textToFind+"</a>"); //Заменяем найденный текст ссылками с якорем;
+
+                         } else {
+                            id.style.display='none';
+                         }
+                     }
                 }
-                }  
+            }  
            
         </script>
            
